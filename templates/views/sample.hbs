@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deposit Slip</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+<body>
+<div class="main-content">
+{{>header}}
+<form id="form1" action="/deposit" method="POST">
+                <table>
+                    <tr>
+                        <td><label class="date">Date:</label></td>
+                        <td><input type="text" id="datetxt" name="TDate" readonly><br></td>
+                        <td><label class="cash">Cash:</label></td>
+                        <td><input type="text" id="cashtxt" name="Cash_Deposit"></t></td>
+                        <td><label class="five">5:</label></t></td>
+                        <td><input type="text" id="fivetxt" name="fivec" size="2"></td>
+                        
+                        
+                    </tr>
+                    <tr>
+                        <td><label class="name">Person Name:</label></td>
+                        <td><input type="text" id="nametxt" name="Cust_name"><br></td>       
+                        <br>
+                
+                        
+                        <td><label class="check">Check:</label></td>
+                        <td><input type="text" id="checktxt" name="Check_Deposit" onchange="myFunction0()"></t></td> 
+                        <td><label class="ten">10:</label></t></td>
+                        <td><input type="text" id="tentxt" name="tenc" size="2"></td>
+                        {{!-- <td><input type="button" id="btdadd" value="+"></td> --}}
+                    </tr>
+                    <tr>
+                        <td><label class="accounttype">Account Type:</label></td>
+                        <td><select id="accountlist" name="Acct_type">
+                        <option value="Saving">Saving</option>
+                        <option value="Checking">Checking</option>                
+                        </select><br></td>
+                        
+                
+                        <td><label class="subtotal">Subtotal:</label></td>
+                        <td><input type="text" id="subtotaltxt" name="Subtotal" readonly></t></td>
+                        <td><label class="twenty">20:</label></t></td>
+                        <td><input type="text" id="twentytxt" name="twentyc" size="2"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="accountnumber">Account Number:</label></td>
+                        <td><input type="text" id="accounttxt" name="Acct_number"><br></td>
+                        <td><label class="cashback">Cashback:</label></td>
+                        <td><input type="text" id="cashbacktxt" name="Cash_back" onchange="myFunction1()"></t></td>
+                        <td><label class="fifty">50:</label></t></td>
+                        <td><input type="text" id="fiftytxt" name="fiftyc" size="2"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><label class="total">Total:</label></td>
+                        <td><input type="text" id="totalxt" name="Total" readonly></t></td>
+                        <td><label class="hundred">100:</label></t></td>
+                        <td><input type="text" id="hundredtxt" name="hundredc" size="2"></td>
+                    </tr>
+                </table>
+               {{>footer}} 
+                <input class="btn" type="reset" id="btnreset" onclick="myFunction()" value="Reset"></t>
+                <input class="btn" type="button" id="btncancel" value="Cancel" onclick="home()"></t>
+                <input class="btn" type="submit" id="btnsubmit" value="Submit"></t>
+</form>
+
+
+</div>
+
+<script>
+var today = new Date();
+var date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();//var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+document.getElementById("datetxt").value = date;
+function home(){
+    window.location='/'
+}
+function myFunction() {
+  document.getElementById("form1").reset();
+}
+function myFunction0(){
+        const a=parseInt(document.getElementById('cashtxt').value)
+        const b=parseInt(document.getElementById('checktxt').value)
+        if(a>0 || b>=0)
+        {
+            const c=parseInt(a)+parseInt(b)
+            document.getElementById('subtotaltxt').value=Number(c)
+        }
+        else
+        {
+            alert("Amount must be positive.")
+        }
+        
+    }
+    function myFunction1(){
+        const d=parseInt(document.getElementById('subtotaltxt').value)
+        const e=parseInt(document.getElementById('cashbacktxt').value)
+        if(d>0 || e>=0)
+        {
+            const f=d-e
+            document.getElementById('totalxt').value=Number(f)
+        }
+        else
+        {
+            alert("Amount must be positive.")
+        }
+    }
+</script>
+
+</body>
+</html>

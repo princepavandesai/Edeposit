@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deposit Slip</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+<body>
+<div class="main-content">
+{{>header}}
+<form id="form1" action="/deposit" method="POST">
+                <table>
+                    <tr>
+                        <td><label class="date">Date:</label></td>
+                        <td><input type="text" id="datetxt" name="TDate" readonly><br></td>
+                        <td><label class="cash">Cash:</label></td>
+                        <td><input type="number" id="cashtxt" name="Cash_Deposit" min="0.00" max="9999999999.00" step="0.01" onchange="myFunction0()"><br></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label class="name">Person Name:</label></td>
+                        <td><input type="text" id="nametxt" name="Cust_name"><br></td>       
+                        <br>
+                
+                        
+                        <td><label class="check">Check:</label></td>
+                        <td><input type="number" id="checktxt" name="Check_Deposit" min="0.00" max="9999999999.00" step="0.01" onchange="myFunction0()"></t></td> 
+                        <td><input type="button" id="btdadd" value="+"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="accounttype">Account Type:</label></td>
+                        <td><select id="accountlist" name="Acct_type">
+                        <option value="Saving">Saving</option>
+                        <option value="Checking">Checking</option>                
+                        </select><br></td>
+                        
+                
+                        <td><label class="subtotal">Subtotal:</label></td>
+                        <td><input type="number" id="subtotaltxt" name="Subtotal" min="0.00" max="9999999999.00" step="0.01" onfocus="myFunction0()" readonly><br></td>
+                    </tr>
+                    <tr>
+                        <td><label class="accountnumber">Account Number:</label></td>
+                        <td><input type="number" id="accounttxt" name="Acct_number"><br></td>
+                        <td><label class="cashback">Cashback:</label></td>
+                        <td><input type="number" id="cashbacktxt" name="Cash_back" min="0.00" max="9999999999.00" step="0.01" onchange="myFunction0()"><br></td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><label class="total">Total:</label></td>
+                        <td><input type="number" id="totalxt" name="Total" min="0.00" max="999999999999.99" step="0.01" readonly><br></td>
+                    </tr>
+                </table>
+               {{>footer}} 
+                <input class="btn" type="button" id="btnreset" onclick="myFunction()" value="Reset"></t>
+                <input class="btn" type="button" id="btncancel" value="Cancel" onclick="home()"></t>
+                <input class="btn" type="submit" id="btnsubmit" value="Submit"></t>
+</form>
+</div>
+<script src="/js/validate.js"></script>
+</body>
+</html>

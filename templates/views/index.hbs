@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Broadway Bank Deposit Slip</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows+Into+Light">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mr+Dafoe">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tinos">
+    <script src="/js/script.js" type="text/javascript"></script>
+    <script src="/js/validate.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <!--<button>Flip</button>
+<input id="flipped" type="checkbox">-->
+<form id="form1" action="/deposit" method="POST">
+	<div class="side1">
+		<div class="note">
+			<p><span class="form-no">Form# BROADWAYBANK-0011</span> <br><em>Checks and other items are received for deposit subject to the provisions <br>of the uniform commercial code or applicable collection agreement</em>.</p>
+		</div>
+		<div class="details">
+			<div class="customer-no">
+				<!--<h1>Checking Account Deposit</h1>
+        <select id="accountlist" name="Acct_type">
+          <option value="Saving">Savings Account</option>
+          <option value="Checking">Checking Account</option>
+        </select>-->
+        <div>
+        <input type="radio" id="saving" name="Acct_type" value="Saving">
+        <label for="savings">Savings Account</label>
+        <input type="radio" id="checking" name="Acct_type" value="Checking">
+        <label for="checking">Checking Account</label>
+      </div>
+				<div class="number-fields">
+					<input type="number" name="customer1" min="0" max="9"><input type="number" name="customer2" min="0" max="9"><input type="number" name="customer3" min="0" max="9"><input type="number" name="customer4" min="0" max="9"><input type="number" name="customer5" min="0" max="9"><input type="number" name="customer6" min="0" max="9"><input type="number" name="customer7" min="0" max="9"><input type="number" name="customer8" min="0" max="9"><input type="number" name="customer9" min="0" max="9"><input type="number" name="customer10" min="0" max="9">
+          <input type="hidden" name="Acct_number" value="">
+				</div>
+				<label>Account Number</label>
+			</div>
+			<div class="customer-details">
+				<label for="customername">Person Name</label><input id="customername" type="text" name="Cust_name">
+				<span class="detail-tip"><em>(Please print)</em></span>
+				<label for="checkdate">Date</label><input id="checkdate" type="text" name="TDate" readonly>
+				<span class="detail-tip"><em>Deposits may not be available for immediate withdrawal</em></span>
+				<!--<input type="text" name="signature" class="signature">
+				<span class="detail-tip">Sign here for cash received (if required)</span>-->
+				<div class="bank-name">Broadway<span>Bank</span></div>
+				<!--<label class="amount-label">Total deposit</label>-->
+			</div>
+			<code class="bank-no">1234567890</code>
+		</div>
+		<div class="amounts">
+			<label class="amount-label">List checks singly or attach list</label>
+			<div class="amount-col-title">Dollars</div>
+			<div class="amount-col-title">Cents</div>
+			<label class="amount-label">Cash</label>
+			<div class="number-fields">
+				<input type="number" name="currency1" min="0" max="9"><input type="number" name="currency2" min="0" max="9"><input type="number" name="currency3" min="0" max="9"><input type="number" name="currency4" min="0" max="9"><input type="number" name="currency5" min="0" max="9"><input type="number" name="currency6" min="0" max="9"><input type="number" name="currency7" min="0" max="9">
+        <input type="hidden" name="Cash_Deposit" value="">
+			</div>
+
+			<label class="amount-label">Check</label>
+			<div class="number-fields">
+        <input type="number" name="checks1" min="0" max="9"><input type="number" name="checks2" min="0" max="9"><input type="number" name="checks3" min="0" max="9"><input type="number" name="checks4" min="0" max="9"><input type="number" name="checks5" min="0" max="9"><input type="number" name="checks6" min="0" max="9"><input type="number" name="checks7" min="0" max="9">
+				<input type="hidden" name="Check_Deposit" value="">
+      </div>
+			<label class="amount-label">Subtotal</label>
+			<div class="number-fields">
+        <input type="number" name="coin1" min="0" max="9" readonly><input type="number" name="coin2" min="0" max="9" readonly><input type="number" name="coin3" min="0" max="9" readonly><input type="number" name="coin4" min="0" max="9" readonly><input type="number" name="coin5" min="0" max="9" readonly><input type="number" name="coin6" min="0" max="9" readonly><input type="number" name="coin7" min="0" max="9" readonly>
+				<input type="hidden" name="Subtotal" value="">
+      </div>
+			<label class="amount-label"><span>Cashback</span></label>
+			<div class="number-fields">
+				<input type="number" name="backtotal1" min="0" max="9"><input type="number" name="backtotal2" min="0" max="9"><input type="number" name="backtotal3" min="0" max="9"><input type="number" name="backtotal4" min="0" max="9"><input type="number" name="backtotal5" min="0" max="9"><input type="number" name="backtotal6" min="0" max="9"><input type="number" name="backtotal7" min="0" max="9">
+        <input type="hidden" name="Cash_back" value="">
+      </div>
+			<label class="amount-label">Total</label>
+			<!--<div class="number-fields">
+				<input type="number" name="total1" min="0" max="9"><input type="number" name="total2" min="0" max="9"><input type="number" name="total3" min="0" max="9"><input type="number" name="total4" min="0" max="9"><input type="number" name="total5" min="0" max="9"><input type="number" name="total6" min="0" max="9"><input type="number" name="total7" min="0" max="9">
+			</div>-->
+			<div class="number-fields">
+				<span class="dollars">$</span><input type="number" name="totaldeposit1" min="0" max="9" readonly><input type="number" name="totaldeposit2" min="0" max="9" readonly><input type="number" name="totaldeposit3" min="0" max="9" readonly><input type="number" name="totaldeposit4" min="0" max="9" readonly><input type="number" name="totaldeposit5" min="0" max="9" readonly><input type="number" name="totaldeposit6" min="0" max="9" readonly><input type="number" name="totaldeposit7" readonly min="0" max="9"><input type="number" name="totaldeposit8" min="0" max="9" readonly><input type="number" name="totaldeposit9" min="0" readonly max="9">
+        <input type="hidden" name="Total" value="">
+			</div>
+			<!--<code class="two-digits">10</code>-->
+
+      <!--
+      <div class>
+        <input type="button" value="Reset">
+      </div>
+      <div>
+        <button type="button">Cancel</button>
+      </div>
+      <div>
+        <button type="button">Submit</button>
+      </div>-->
+		</div>
+	</div>
+</form>
+<div style="margin-top: 1em;margin-left: 11em;">
+  <button type="button" name="resetBtn">Reset</button>
+</div>
+<div style="margin-top: -1.9em;margin-left: 19em;">
+  <button type="button" onclick="window.location='/';">Cancel</button>
+</div>
+<div style="margin-top: -1.9em;margin-left: 27em;">
+  <button type="button" name="submitBtn">Submit</button>
+</div>
+  </body>
+</html>
